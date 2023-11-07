@@ -1,0 +1,8 @@
+dec a;
+arry [5] OF flo b.
+in > a.
+for a -> n:
+{
+    a {} 0.
+}
+out < a.

@@ -1,0 +1,9 @@
+flo a.
+dec b.
+in > a.
+in > b.
+loop 1 -> ^b:
+[
+    a {} a $ a.
+]
+out < a.

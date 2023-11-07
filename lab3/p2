@@ -1,0 +1,14 @@
+dec n.
+in > n.
+dec s {} 0.
+loop 1 -> n:
+[
+    dec x.
+    in > x.
+    iff x >>> 0:
+    [
+        s {} s & x.
+    ]
+]
+out < s.
+ret 0.
