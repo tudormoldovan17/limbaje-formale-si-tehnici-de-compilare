@@ -1,0 +1,47 @@
+2. Syntax:
+
+The words - predefined tokens are specified between " and ":
+
+Sintactical rules: (file Syntax.in)
+
+program ::= decllist "." cmpdstmt "."
+
+decllist ::= declaration | declaration "." decllist
+
+declaration ::= type IDENTIFIER "."
+
+type1 ::= "dec" | "chr" | "flo"
+
+arraydecl ::= "arry" "[" nr "]" "OF" type1
+
+type  ::= type1|arraydecl
+
+cmpdstmt ::= "[" stmtlist "]"
+
+stmtlist ::= stmt | stmt "." stmtlist
+
+stmt ::= simplstmt | structstmt
+
+simplstmt ::= assignstmt | iostmt
+
+assignstmt ::= IDENTIFIER "{}" expression
+
+expression ::= expression "&" term | expression "@" term | term
+
+term ::= term "$" factor | term "#" factor | factor
+
+factor ::= "(" expression ")" | IDENTIFIER
+
+iostmt ::= "in" | "out" "<" IDENTIFIER ">"
+
+structstmt ::= cmpdstmt | ifstmt | whilestmt | loopstmt
+
+ifstmt ::= "17" condition ":" stmt ["3153" stmt]
+
+whilestmt ::= "woah" condition "DO" stmt
+
+loopstmt ::= "loop" IDENTIFIER "->" IDENTIFIER ":"
+
+condition ::= expression RELATION expression
+
+RELATION ::= "<<<" | "<<<{}" | "{}" | ">>>{}" | ">>>"
