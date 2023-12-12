@@ -1,0 +1,82 @@
+The Parser class in this module serves as a tool for parsing sequences based on a given grammar. It implements an algorithm that performs parsing actions such as expanding, advancing, and handling backtracking in order to determine whether a sequence adheres to the specified grammar rules.
+
+
+class Parser:
+__init__(self, grammar): Initializes the Parser object with a given grammar.
+algorithm(self, sequence): Implements the parsing algorithm to verify whether the input sequence conforms to the defined grammar.
+add_productions_to_file(self, sequence): Processes the input sequence and generates a file containing the resulting string of productions if the sequence is accepted; otherwise, it marks the sequence as not accepted.
+run_tests(self): Executes a series of predefined tests to validate the parser's functionality.
+
+Methods:
+
+Initialization:
+__init__(self, grammar):
+Parameters:
+grammar: An instance of the Configuration class representing the grammar rules.
+Initializes the Parser object by setting initial configuration parameters.
+Parsing Methods:
+
+algorithm(self, sequence):
+Parameters:
+sequence: The input sequence to be parsed.
+Implements the parsing algorithm based on the provided grammar rules. It iterates through the sequence and performs actions such as expanding, advancing, backtracking, and handling success or failure conditions.
+
+add_productions_to_file(self, sequence):
+Parameters:
+sequence: The sequence to be processed and checked against the grammar.
+Executes the parsing algorithm on the input sequence and writes the resulting string of productions to a file if the sequence is accepted; otherwise, marks the sequence as not accepted.
+run_tests(self): Executes predefined tests using various sequences to validate the parser's correctness and functionality. It generates a file (tests_result.txt) containing the test outcomes.
+
+Parsing Actions:
+expand(self): Expands the input stack by following production rules based on the current non-terminal head.
+advance(self): Moves forward in parsing the input sequence by updating the input and remaining sections.
+mom_insuccess(self): Handles the condition when the parsing attempt fails at a specific point.
+back(self): Performs backtracking to revisit a previous state during parsing.
+another_try(self): Attempts another parsing strategy if the current strategy fails.
+
+Test Cases:
+The run_tests method executes a set of predefined test cases, validating whether the parser can correctly parse and determine the correctness of sequences according to the provided grammar rules.
+
+File Handling:
+The parser generates an output file (_out.txt) that logs the parsing steps and outcomes during the parsing process.
+
+
+Class Configuration:
+__init__(self, s, i, a, b): Initializes a configuration object with state, symbol position, working stack, and input stack.
+is_head_nonterminal(self, grammar): Determines if the head of the input stack is a non-terminal symbol.
+is_head_terminal(self, grammar): Determines if the head of the input stack is a terminal symbol or an epsilon.
+__str__(self): Provides a string representation of the configuration object.
+
+Methods:
+Initialization:
+__init__(self, s, i, a, b):
+Parameters:
+s: State of the parsing (q - normal, b - back, f - final, e - error).
+i: Position of the current symbol.
+a: Working stack.
+b: Input stack.
+Initializes the Configuration object by setting its internal attributes based on the provided parameters.
+
+Parsing State Identification:
+is_head_nonterminal(self, grammar):
+Parameters:
+grammar: An instance of the grammar rules.
+Checks whether the head of the input stack represents a non-terminal symbol based on the provided grammar rules.
+
+is_head_terminal(self, grammar):
+Parameters:
+grammar: An instance of the grammar rules.
+Determines if the head of the input stack represents a terminal symbol (or epsilon) based on the provided grammar rules.
+
+String Representation:
+__str__(self):
+Returns a string representation of the Configuration object, displaying its state, position of the current symbol, working stack, and input stack.
+
+State Variables:
+s: Represents the state of the parsing process (q - normal, b - back, f - final, e - error).
+i: Denotes the position of the current symbol within the parsing process.
+a: Refers to the working stack used during parsing.
+b: Represents the input stack containing symbols to be parsed.
+
+Parsing Utilities:
+The methods is_head_nonterminal and is_head_terminal provide functionality to determine the nature of the symbol at the head of the input stack, aiding in the parsing process by identifying whether it's a terminal or a non-terminal based on the provided grammar.

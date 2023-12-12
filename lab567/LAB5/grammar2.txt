@@ -1,0 +1,12 @@
+N = { S A B C }
+E = { < > or / and }
+S = S
+P = {
+    S -> A B
+    A -> < S >
+    A -> and C
+    B -> or S
+    B -> epsilon
+    C -> epsilon
+    C -> / A
+}
