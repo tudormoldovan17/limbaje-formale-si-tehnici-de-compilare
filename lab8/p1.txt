@@ -1,0 +1,9 @@
+dec a.
+in > a.
+out < a.
+
+a {} 0.
+dec b {} a.
+out < b.
+
+ret 0.
